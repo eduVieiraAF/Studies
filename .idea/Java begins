@@ -535,5 +535,53 @@ double myDouble = -1000;
 // , : comma grouping separator if number > 1000
 // System.out.printf("You have %,f", myDouble);
 
-=============================================================================================================
 
+=====================================================================
+
+//SEPARATE JAVA CLASS EXAMPLE
+
+
+public class Cars {
+
+   String make = "Chevrolet";
+   String model = "Tracker";
+   int year = 2021;
+   String color = "White";
+   double price = 50_000.00;
+
+   void drive() {
+       System.out.println("you're driving it");
+   }
+
+   void breaks(){
+       System.out.println("you're pulling over");
+   }
+}
+
+
+----------------------------------------------------------------------
+
+
+import java.text.Format;
+import java.text.NumberFormat;
+
+public class Main {
+   public static void main(String[] args) {
+
+       // Objects = an instance of a class that may contain attributes and methods such as a phone, desk, laptop, cup...
+       // Separate java class was created "cars"
+
+       Cars myCar = new Cars();
+       System.out.println(myCar.color);
+       System.out.println(myCar.make);
+       System.out.println(myCar.model);
+       System.out.println(myCar.year);
+       System.out.println(NumberFormat.getCurrencyInstance().format(myCar.price));
+       System.out.println();
+       myCar.drive();
+       myCar.breaks();
+       }
+
+   }
+
+======================================================================
