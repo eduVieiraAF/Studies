@@ -585,3 +585,54 @@ public class Main {
    }
 
 ======================================================================
+
+SEPARARE JAVA CLASS FILE CALLED 'HUMAM'
+
+public class Human {
+
+    String name;
+    int age;
+    double weight;
+    double height;
+
+    Human(String name, int age, double weight, double height){
+
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
+
+    }
+
+void eat(){
+    System.out.println(this.name+" is eating.");
+}
+
+void drink(){
+    System.out.println(this.name + "is drinking.");
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Constructor: Special method that is called when an object is intantiated (created)
+        // separate java class file called Human
+
+        Human human1 = new Human("Jeff", 42, 90, 1.70);
+        Human human2 = new Human("Jerry", 34, 75.8, 1.80);
+        Human human3 = new Human("Suellen", 27, 65, 1.52);
+        Human human4 = new Human("Michelle", 19, 55, 1.60);
+
+        System.out.println(human1.name);
+        System.out.println(human3.height + "cm");
+        System.out.println(human2.weight + "Kg");
+        System.out.println(human4.age);
+        human3.eat();
+        human1.drink();
+
+        }
+
+    }
