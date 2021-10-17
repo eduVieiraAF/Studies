@@ -767,3 +767,39 @@ public class Main {
     }
 
 =======================================================================================================================
+
+// SEPARATE JAVA FILE "FOOD"
+
+public class Food {
+
+    String name;
+    Food(String name) {
+        this.name = name;
+    }
+}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        //Food[] refrigerator =  new Food[3];
+
+        Food food1 = new Food("pizza");
+        Food food2 = new Food("butter");
+        Food food3 = new Food("lettuce");
+
+        //refrigerator[0] = food1;
+        //refrigerator[1] = food2;
+        //refrigerator[2] = food3;
+
+        // OR
+
+        Food[] refrigerator  = {food1,food2,food2};
+
+        System.out.println(refrigerator[0].name);
+        System.out.println(refrigerator[1].name);
+        System.out.println(refrigerator[2].name);
+
+    }
+}
