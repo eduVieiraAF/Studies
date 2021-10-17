@@ -803,3 +803,58 @@ public class Main {
 
     }
 }
+
+=======================================================================================================================
+
+// Passing objects as arguments
+
+// SEPARATE JAVA CLASS FILE 'CARS'
+
+public class Cars {
+
+    String name;
+    Cars(String name){
+        this.name = name;
+    }
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//SEPARATE JAVA CLASS FILE 'GARAGE'
+
+public class Garage {
+
+    void park(Cars car){
+        System.out.println("Your " + car.name + " is parked in the garage");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Garage garage = new Garage();
+        System.out.println("What car do you own?");
+        Scanner scanner = new Scanner(System.in);
+        Cars car = new Cars(scanner.next());
+        garage.park(car);
+        System.out.println();
+        System.out.println("Would you like to park a second car? " + "Enter the car name or 'QUIT'");
+        car = new Cars(scanner.next().toUpperCase());
+        if (car.name.contains("QUIT")) {
+            System.out.println();
+            System.out.println("Good bye");}
+        else {
+            System.out.println();
+            garage.park(car);
+        }
+    }
+}
+
+=======================================================================================================================
