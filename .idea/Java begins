@@ -858,3 +858,60 @@ public class Main {
 }
 
 =======================================================================================================================
+
+// Inheritance is the process where one class acquires the attributes and methods of another
+
+// SEPARATE JAVA CLASS "CAR"
+
+
+public class Car extends Vehicle {
+
+    int wheels = 4;
+    int doors = 4;
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//SEPARATE JAVA CLASS FILE 'BICYCLE'
+
+
+public class Bicycle extends Vehicle {
+
+    int wheels = 2;
+    int pedals = 2;
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'VEHICLE'
+
+public class Vehicle {
+
+    double speed;
+    void go(){
+        System.out.println("this vehicle is moving.");
+    }
+    void stop(){
+        System.out.println("this vehicle is stopped. ");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Car car = new Car();
+        car.go();
+        Bicycle bike = new Bicycle();
+        bike.stop();
+        System.out.println(car.speed);
+        System.out.println(bike.speed);
+        System.out.println(car.doors);
+        System.out.println(car.wheels);
+        System.out.println(bike.wheels);
+        System.out.println(bike.pedals);
+        }
+    }
