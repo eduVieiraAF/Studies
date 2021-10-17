@@ -636,3 +636,35 @@ public class Main {
         }
 
     }
+  =====================================================================================================================
+
+  // SEPARATE JAVA CLASS FILE 'DiceRoller'
+
+import java.util.Random;
+
+public class DiceRoller {
+
+    DiceRoller(){
+        Random random = new Random();
+        int number =0;
+        roll(random,number);
+
+    }
+
+    void roll(Random random, int number){    //passing local variables 'random' and 'number as arguments to change_
+        number = random.nextInt(6)+1;        //them into global variables
+        System.out.println(number);
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        DiceRoller diceroller = new DiceRoller();
+
+        }
+
+    }
