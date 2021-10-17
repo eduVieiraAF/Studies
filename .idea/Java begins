@@ -1,5 +1,3 @@
-
-
 float sal, desp, diff;
 System.out.print("Renda mensal: ");
 Scanner salS = new Scanner(System.in);
@@ -27,7 +25,6 @@ if (diff <= 70) {
            "devem ser de 40% ou " + NumberFormat.getCurrencyInstance().format((sal*40)/100) + " do seu salário");
 
 }
-
 }
 
 =======================================================================================================================
@@ -45,21 +42,15 @@ else if (TEMP >= 18 && TEMP < 25) {
 
 } else if (TEMP < 18) {
    System.out.println("Pretty chilly");
-
 }
 
 =======================================================================================================================
-
-
 
    boolean hasHighIncome = true;
    boolean hasGoodCredit = true;
    boolean hasCriminalRecord = true;
                //                      OR                   REVERSE VALUE
    boolean isEligible = (hasHighIncome || hasGoodCredit) && !hasCriminalRecord;
-
-
-
 
 AVOIDING ELSE CLAUSES UNNECESSARILY
 
@@ -72,9 +63,7 @@ if (income > 100_000)
    className = "First class";
 System.out.println(className);
 
-
 OR
-
 
 int income;
 System.out.print("Type in your income: $");
@@ -82,7 +71,6 @@ Scanner sIncome = new Scanner(System.in);
 income = sIncome.nextInt();
 String className = income > 100_000 ? "First class" : "Economy class" ;
 System.out.println(className);
-
 
 =======================================================================================================================
 
@@ -117,8 +105,7 @@ else if(number % 5 == 0)
 else
    System.out.println(number + " is neither a Fizz nor a Buzz");
 
-
-OR
+//OR
 
 System.out.print("Number: ");
 Scanner sNumber = new Scanner(System.in);
@@ -179,8 +166,7 @@ float intRate;
 Scanner monthScan = new Scanner(System.in);
 int month;
 
-while (true)
-{
+while (true){
    System.out.print("Principal ($1K - $1M): ");
    princ = princScan.nextInt();
    if (princ >= 1_000 && princ <= 1_000_000)
@@ -232,7 +218,6 @@ y = scn.nextDouble();
 z = Math.sqrt((x*x)+(y*y));
 System.out.println("Your hypotenuse is "+z);
 
-
 =======================================================================================================================
 
 double x,y,m;
@@ -250,7 +235,6 @@ Random rand = new Random();
 int x = rand.nextInt(6)+1;
 System.out.println(x);
 
-
 =======================================================================================================================
 
 Scanner scanner = new Scanner(System.in);
@@ -261,7 +245,6 @@ do {
    name = scanner.nextLine();
 }while (name.isBlank());
 System.out.println("Hello " + name.toUpperCase());
-
 
 =======================================================================================================================
 
@@ -375,7 +358,6 @@ public class Main {
         int quit;
        j=1;
         do {
-
             System.out.print("->");
             quit = scanner.nextInt();
 
@@ -394,7 +376,6 @@ public class Main {
         } while (quit != 0);
         System.out.println("Goodbye");
         }
-
     }
 
 =======================================================================================================================
@@ -404,7 +385,6 @@ ArrayList<ArrayList<String>> groceryList = new ArrayList<>();
         bakeryList.add("pasta");
         bakeryList.add("doughnuts");
         bakeryList.add("garlic bread");
-
 
         ArrayList<String> produceList = new ArrayList<>();
         produceList.add("tomatoes");
@@ -457,7 +437,7 @@ static int add(int x, int y) {
 =======================================================================================================================
 
 // overloaded methods = methods that share the same name but have different parameters
-   //                      method name + parameters = method signature
+//                      method name + parameters = method signature
 
    double x = add(1,2,4,8);
    System.out.println(x);
@@ -530,7 +510,6 @@ double myDouble = -1000;
 
 //SEPARATE JAVA CLASS EXAMPLE
 
-
 public class Cars {
 
    String make = "Chevrolet";
@@ -571,7 +550,6 @@ public class Main {
        myCar.drive();
        myCar.breaks();
        }
-
    }
 
 =======================================================================================================================
@@ -591,7 +569,6 @@ public class Human {
         this.age = age;
         this.weight = weight;
         this.height = height;
-
     }
 
 void eat(){
@@ -603,7 +580,6 @@ void drink(){
 }
 
 -----------------------------------------------------------------------------------------------------------
-
 
 public class Main {
     public static void main(String[] args) {
@@ -624,7 +600,6 @@ public class Main {
         human1.drink();
 
         }
-
     }
 
  ======================================================================================================================
@@ -639,7 +614,6 @@ public class DiceRoller {
         Random random = new Random();
         int number =0;
         roll(random,number);
-
     }
 
     void roll(Random random, int number){    //passing local variables 'random' and 'number as arguments to change_
@@ -650,14 +624,11 @@ public class DiceRoller {
 
 -----------------------------------------------------------------------------------------------------------------------
 
-
 public class Main {
     public static void main(String[] args) {
 
         DiceRoller diceroller = new DiceRoller();
-
         }
-
     }
 
 ======================================================================================================================
@@ -674,13 +645,10 @@ public class Pizza {
     String cheese;
     String topping;
 
-
-
     Pizza(String bread, String sauce){
 
         this.bread = bread;
         this.sauce = sauce;
-
     }
 
     Pizza(String bread, String sauce, String cheese){
@@ -699,11 +667,9 @@ public class Pizza {
         this.topping = topping;
 
     }
-
 }
 
 -----------------------------------------------------------------------------------------------------------------------
-
 
 public class Main {
 
@@ -722,9 +688,7 @@ public class Main {
         System.out.println(pizza2.bread);
         System.out.println(pizza2.sauce);
         System.out.println(pizza2.cheese);
-
         }
-
     }
 
 =======================================================================================================================
@@ -745,7 +709,6 @@ public class Cars {
         return  make + "\n" + model + "\n" + colour + "\n" + year;
 
     }
-
 }
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -763,7 +726,6 @@ public class Main {
         System.out.println(car); // both work
 
         }
-
     }
 
 =======================================================================================================================
@@ -777,7 +739,6 @@ public class Food {
         this.name = name;
     }
 }
-
 
 public class Main {
 
@@ -816,7 +777,6 @@ public class Cars {
     Cars(String name){
         this.name = name;
     }
-
 }
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -863,12 +823,10 @@ public class Main {
 
 // SEPARATE JAVA CLASS "CAR"
 
-
 public class Car extends Vehicle {
 
     int wheels = 4;
     int doors = 4;
-
 }
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -915,3 +873,5 @@ public class Main {
         System.out.println(bike.pedals);
         }
     }
+
+=======================================================================================================================
