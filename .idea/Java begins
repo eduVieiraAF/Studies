@@ -728,3 +728,42 @@ public class Main {
     }
 
 =======================================================================================================================
+
+*SEPARATE JAVA CLASS FILE 'CARS'
+
+ // overriding the toString() method
+
+public class Cars {
+
+    String make = "Chevrolet";
+    String model = "Tracker";
+    String colour = "White";
+    int year = 2021;
+
+    public String toString(){
+
+        return  make + "\n" + model + "\n" + colour + "\n" + year;
+
+    }
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Cars car = new Cars();
+
+        System.out.println(car.toString());
+
+        //OR
+
+        System.out.println(car); // both work
+
+        }
+
+    }
+
+=======================================================================================================================
