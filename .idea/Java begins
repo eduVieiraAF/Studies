@@ -919,3 +919,49 @@ public class Main {
 }
 
 =======================================================================================================================
+
+// The "super" keyword = refers to the superclass (parent) of an object. This one is similar to the "this" keyword.
+
+// SEPARATE JAVA CLASS FILE 'PERSON'
+
+
+public class Person {
+    String name;
+    int age;
+    Person(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+    public String toString(){
+        return this.name + "\n" + this.age + "\n";
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'HERO'
+
+public class Hero extends Person {
+    String power;
+     Hero(String name, int age, String power) {
+        super(name, age);
+        this.power = power;
+    }
+    public String toString(){
+            return super.toString() + this.power;
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        Hero hero1 = new Hero("Flash", 42, "Speed");
+        Hero hero2 = new Hero("Green Arrow", 45, "Really good aim");
+        System.out.println(hero1.name);
+        System.out.println(hero1.age);
+        System.out.println(hero1.power);
+        System.out.println();
+        System.out.println(hero2.toString());
+    }
+}
