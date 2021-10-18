@@ -875,3 +875,47 @@ public class Main {
     }
 
 =======================================================================================================================
+
+// method overridding is achieved by declaring a method in a sub class which is already present in a parent class
+// (allowing a child class to give its own implementations which can be more specific)
+
+// SEPARATE JAVA CLASS "ANIMAL"
+
+public class Animal {
+    void speak(){
+        System.out.println("The animal is speaking.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE "DOG"
+
+public class Dog extends Animal {
+    //override
+    void speak(){
+        System.out.println("The dog is barking.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Dog extends Animal {
+    //override
+    void speak(){
+        System.out.println("The dog is barking.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        Animal animal = new Animal();
+        animal.speak();
+        dog.speak();
+    }
+}
+
+=======================================================================================================================
