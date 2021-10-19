@@ -964,3 +964,106 @@ public class Main {
         System.out.println(hero2.toString());
     }
 }
+
+=======================================================================================================================
+
+// Abstract classes cannot be instantiated, but they can have a subclass.
+// Abstract melhods are declared without an implementation.
+
+// SEPARATE JAVA CLASS FILE 'VEHICLE'
+
+public abstract class Vehicle {
+    abstract void go();
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'CAR'
+
+public class Car extends Vehicle {
+    // override
+    void go(){
+        System.out.println("the car is moving.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ublic class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        //Vehicle vehicle = new Vehicle(); Cannot be created
+        car.go();
+    }
+}
+
+=======================================================================================================================
+
+// Encapsulation is when attributes of a class will be hidden or made private, and can only be accessed thru
+// special methods (getter and setter).
+
+// SEPARATE JAVA CLASS FILE 'CAR'
+
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+
+    Car(String make, String model, int year){
+        this.setMake(make);
+        this.setModel(model);
+        this.setYear(year);
+    }
+public String getMake(){
+        return make;
+}
+public String getModel(){
+        return model;
+}
+public int getYear(){
+        return year;
+}
+public void setMake(String make){
+        this.make = make;
+}
+public void setModel(String model){
+        this.model = model;
+}
+public void setYear(int year) {
+        this.year = year;
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("This is the car you have just sold:");
+        Car car = new Car("Honda","Civic",2021);
+
+        System.out.println(car.getMake());
+        System.out.println(car.getModel());
+        System.out.println(car.getYear());
+
+        System.out.println();
+        System.out.println("Enter the car you have just bought:");
+        System.out.print("Make: ");
+        Scanner scanner = new Scanner(System.in);
+        car.setMake(scanner.next());
+        System.out.print("Model: ");
+        scanner = new Scanner(System.in);
+        car.setModel(scanner.next());
+        System.out.print("Year: ");
+        scanner = new Scanner(System.in);
+        car.setYear(scanner.nextInt());
+
+        System.out.println();
+        System.out.println("Your the proud owner of a(n):");
+        System.out.println(car.getMake());
+        System.out.println(car.getModel());
+        System.out.println(car.getYear());
+    }
+}
