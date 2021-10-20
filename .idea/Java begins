@@ -1184,3 +1184,43 @@ public class Main {
 }
 // in this dynamic polymorphism example the type of animal was determined after compilation hence the 'dynamic'.
 =======================================================================================================================
+
+// Exceptions: events that occur during the execution of the program, that disrupts the flow of instructions.
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter a number: ");
+            int a = scanner.nextInt();
+            System.out.println();
+            System.out.print("Enter a second number: ");
+            int b = scanner.nextInt();
+            int c = a/b;
+            System.out.println();
+            System.out.print(a + " divided by " + b + " = ");
+            System.out.println(c);
+        }
+        catch (ArithmeticException e){
+            System.out.println();
+            System.out.println("-||Division by ZERO is not allowed||-");
+        }
+        catch (InputMismatchException e) {
+            System.out.println();
+            System.out.println("-||You cannot enter anything else other than a NUMBER||-");
+        }
+        catch (Exception e){ // catches all (other) exception
+            System.out.println();
+            System.out.println("-||INPUT NOT RECOGNIZED||-");
+        }
+        finally {
+            System.out.println("This will print no matter what"); // will execute no matter what
+            // finally is often used to close anything that is open, such as scanners or files, before you carry on with
+            // the rest to the program;
+        }
+        }
+    }
+=======================================================================================================================
