@@ -1143,3 +1143,63 @@ public class Main {
 }
 
 =======================================================================================================================
+
+// Polymorphisim is the ability of an object to identify as more than just one (data) type.
+// In this example all of the types (bike, car, and boat) identify as vehicle and all types are children classes of
+// Vehicle.java, sort of like a subcategory.
+
+// SEPARATE JAVA CLASS FILE 'VEHICLE'
+
+public class Vehicle {
+    public void go() {
+    }
+}
+
+ -----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'CAR'
+
+public class Car extends Vehicle{
+    public void go(){
+        System.out.println("The car starts to move.");
+    }
+}
+
+  -----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'BICYCLE'
+
+public class Bicycle extends Vehicle {
+    public void go(){
+        System.out.println("The bike starts to move.");
+    }
+}
+
+ -----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'BOAT'
+
+public class Boat extends Vehicle{
+    public void go(){
+        System.out.println("The boats start to move.");
+    }
+}
+ -----------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        Bicycle bike = new Bicycle();
+        Boat boat = new Boat();
+
+        //creating an array
+        Vehicle[] racers = {car, bike, boat};
+
+        //instead of printing every line, a for-loop is better
+        for(Vehicle i : racers){
+            i.go();
+        }
+    }
+}
+
+=======================================================================================================================
