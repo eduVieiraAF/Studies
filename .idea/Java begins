@@ -1067,3 +1067,79 @@ public class Main {
         System.out.println(car.getYear());
     }
 }
+
+=======================================================================================================================
+
+// INTERFACES are templates which can be applied to a class, similiar to inheritance but they specify what a class
+//            must do.
+// Classes can apply more than one interface whereas inheritance is limited to 1 super.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE INTERFACE 'PREDATOR'
+
+public interface Predator {
+    void hunt();
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE INTERFACE 'PREY'
+
+public interface Prey {
+    public void flee();
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//SEPARATE JAVA CLASS FILE 'RABBIT'
+
+public class Rabbit implements Prey{
+    @Override
+    public void flee() {
+        System.out.println("The rabbit is getting the heck out of dodge.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//SEPARATE JAVA CLASS FILE 'HAWK'
+
+public class Hawk implements Predator{
+    @Override
+    public void hunt() {
+        System.out.println("The hawk sees the rabbit and starts swooping down.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+//SEPARATE JAVA CLASS FILE 'FISH'
+
+public class Fish implements Prey, Predator{
+    @Override
+    public void hunt() {
+        System.out.println("The bigger fish is trying to catch the smaller fish.");
+    }
+    @Override
+    public void flee() {
+        System.out.println("The smaller fish is swimming for its life.");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        Rabbit rabbit = new Rabbit();
+        Hawk hawk = new Hawk();
+        Fish fish = new Fish();
+
+        hawk.hunt();
+        rabbit.flee();
+        fish.hunt();
+        fish.flee();
+    }
+}
+
+=======================================================================================================================
