@@ -1155,7 +1155,7 @@ public class Vehicle {
     }
 }
 
- -----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 // SEPARATE JAVA CLASS FILE 'CAR'
 
@@ -1165,7 +1165,7 @@ public class Car extends Vehicle{
     }
 }
 
-  -----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 // SEPARATE JAVA CLASS FILE 'BICYCLE'
 
@@ -1175,7 +1175,7 @@ public class Bicycle extends Vehicle {
     }
 }
 
- -----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 // SEPARATE JAVA CLASS FILE 'BOAT'
 
@@ -1184,7 +1184,8 @@ public class Boat extends Vehicle{
         System.out.println("The boats start to move.");
     }
 }
- -----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
 
 public class Main {
     public static void main(String[] args) {
@@ -1201,5 +1202,66 @@ public class Main {
         }
     }
 }
+
+=======================================================================================================================
+
+// Dynamic polymorphism: Polymorphism = many shapes or forms.
+//                       Dynamic = during runtime and/or after compilation.
+
+// SEPARATE JAVA CLASS FILE 'ANIMAL'
+
+public class Animal {
+    public void speak(){
+        System.out.println("[indistinguishable noise]");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'DOG'
+
+public class Dog extends Animal {
+    @Override
+    public void speak(){
+        System.out.println("Huff!");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'CAT'
+
+public class Cat extends Animal {
+    @Override
+    public void speak(){
+        System.out.println("Meooww");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Animal animal;
+        Scanner scanAminal = new Scanner(System.in);
+        System.out.println("CHOOSE YOUR PREFERRED PET");
+        System.out.print("1- Dog or 2- Cat: ");
+        int pet = scanAminal.nextInt();
+        if(pet == 1){
+            animal = new Dog();
+            animal.speak();}
+        else if (pet == 2){
+            animal = new Cat();
+            animal.speak();
+            }
+        else {
+            animal = new Animal();
+            System.out.println("What animal is that???");
+            animal.speak();
+        }
+    }
+}
+// in this dynamic polymorphism example the type of animal was determined after compilation hence the 'dynamic'.
 
 =======================================================================================================================
