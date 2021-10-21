@@ -1384,3 +1384,40 @@ public class Main {
 }
 // IT DOES EXACTLY THE SAME BUT IT'S MORE PRACTICAL TO USE SEPARATE CLASS FILES
 =======================================================================================================================
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ImageIcon logo =  new ImageIcon("man.png");
+        Border border = BorderFactory.createLineBorder(Color.yellow, 2);
+
+        JLabel label  = new JLabel();
+        label.setText("Hello there");
+        label.setIcon(logo);
+        label.setHorizontalTextPosition(JLabel.CENTER);
+        label.setVerticalTextPosition(JLabel.TOP);
+        label.setForeground(new Color(150,195,185));
+        label.setFont(new Font("Calibri", Font.ITALIC,36));
+        label.setIconTextGap(25);
+        label.setBackground(Color.darkGray);
+        label.setOpaque(true); //necessary to show background colour
+        label.setBorder(border);
+        label.setVerticalAlignment(JLabel.CENTER);
+        label.setHorizontalAlignment(JLabel.CENTER);
+        //label.setBounds(10,10,220,350);
+
+        JFrame frame = new JFrame();
+        frame.setTitle("Coding with Java, and also the programming language");
+        //frame.setSize(510,510);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        //frame.setLayout(null);
+        frame.add(label);
+        frame.pack(); //To replace all the code line made into comments.
+    }
+}
+
