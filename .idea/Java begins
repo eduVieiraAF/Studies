@@ -1328,3 +1328,27 @@ public class Main {
         }
     }
 }
+=======================================================================================================================
+
+// Jframe is a window so we can add components to it.
+
+import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame();
+        frame.setTitle("Pretty window");
+        frame.setSize(510,320);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        ImageIcon logo = new ImageIcon("logo.png"); //must drop logo.png into project folder
+        frame.setIconImage(logo.getImage());
+        //frame.getContentPane().setBackground(Color.darkGray); for default color
+        frame.getContentPane().setBackground(new Color(0,150,140));
+
+    }
+}
+=======================================================================================================================
