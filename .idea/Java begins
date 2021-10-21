@@ -1224,3 +1224,32 @@ public class Main {
         }
     }
 =======================================================================================================================
+
+ // FILES
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter fileWriter = new FileWriter("Text.txt");
+            fileWriter.write("Hello world \nThis file was generated through a block of code");
+            fileWriter.append("@");
+            fileWriter.close();
+            File file = new File("C:\\Users\\edu_v\\Random\\HelloWorld\\coding\\Text.txt");
+            if (file.exists()) {
+                System.out.println("File found");
+                //file.delete();
+            }
+            else {
+                    System.out.println("File not found");
+                }
+            }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        }
+    }
+=======================================================================================================================
