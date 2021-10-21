@@ -1420,4 +1420,46 @@ public class Main {
         frame.pack(); //To replace all the code line made into comments.
     }
 }
+=======================================================================================================================
+
+// JPanel is GUI component that works as a container to hold other components
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+        ImageIcon icon = new ImageIcon("man.png");
+        JLabel label = new JLabel();
+        label.setText("Ahoy");
+        label.setFont(new Font("Calibri", Font.ITALIC,36));
+        label.setForeground(new Color(150,50,50));
+        label.setIcon(icon);
+
+        JPanel redPanel = new JPanel();
+        redPanel.setBackground(Color.RED);
+        redPanel.setBounds(0,0,250,250);
+
+        JPanel bluePanel = new JPanel();
+        bluePanel.setBackground(Color.BLUE);
+        bluePanel.setBounds(250,0,250,250);
+
+        JPanel greenPanel = new JPanel();
+        greenPanel.setBackground(Color.GREEN);
+        greenPanel.setBounds(0,250,500  ,350);
+
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+        frame.setSize(780,700);
+        frame.setTitle("Coding with Java, and also the programming language");
+        frame.setVisible(true);
+
+        greenPanel.add(label);
+        frame.add(redPanel);
+        frame.add(bluePanel);
+        frame.add(greenPanel);
+    }
+}
+=======================================================================================================================
 
