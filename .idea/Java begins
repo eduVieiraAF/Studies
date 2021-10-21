@@ -1253,3 +1253,42 @@ public class Main {
         }
     }
 =======================================================================================================================
+
+// FileReader allows us to read the content of a file as a stream of characters one by one.
+
+// SEPARATE TEXT FILE "TEXT"
+
+       .-""""-.        .-""""-.
+      /        \      /        \
+     /_        _\    /_        _\
+    // \      / \\  // \      / \\
+    |\__\    /__/|  |\__\    /__/|
+     \    ||    /    \    ||    /
+      \        /      \        /
+       \  __  /        \  __  /
+        '.__.'          '.__.'
+         |  |            |  |
+-----------------------------------------------------------------------------------------------------------------------
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileReader reader = new FileReader("Text.txt");
+            int store = reader.read();
+            while (store != -1){
+                System.out.print((char)store);
+                store = reader.read();
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    }
+=======================================================================================================================
