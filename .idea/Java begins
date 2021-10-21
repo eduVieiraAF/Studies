@@ -1351,4 +1351,36 @@ public class Main {
 
     }
 }
+-----------------------------------------------------------------------------------------------------------------------
+                // OOOOOOOOOR
+-----------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'MYFRAME'
+
+import javax.swing.*;
+import java.awt.*;
+
+public class myFrame extends JFrame{
+    myFrame(){
+        this.setTitle("Pretty window");
+        this.setSize(510,320);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        ImageIcon logo = new ImageIcon("logo.png"); //must drop logo.png into project folder
+        this.setIconImage(logo.getImage());
+
+        this.getContentPane().setBackground(new Color(0,150,140));
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        myFrame frame = new myFrame();
+        //new myFrame(); if you're not going to use it for anything else.
+    }
+}
+// IT DOES EXACTLY THE SAME BUT IT'S MORE PRACTICAL TO USE SEPARATE CLASS FILES
 =======================================================================================================================
