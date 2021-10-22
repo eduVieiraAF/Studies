@@ -1348,7 +1348,6 @@ public class Main {
         frame.setIconImage(logo.getImage());
         //frame.getContentPane().setBackground(Color.darkGray); for default color
         frame.getContentPane().setBackground(new Color(0,150,140));
-
     }
 }
 -----------------------------------------------------------------------------------------------------------------------
@@ -1463,3 +1462,67 @@ public class Main {
 }
 =======================================================================================================================
 
+// JBUTTON
+
+// SEPARATE JAVA CLASS FILE 'MYFRAME'
+
+port javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+
+    JLabel label;
+    JButton button;
+
+    myFrame( ){
+        label = new JLabel();
+        button = new JButton();
+
+        ImageIcon icon = new ImageIcon("man.png");
+        label.setIcon(icon);
+        label.setText("Ahoy");
+        label.setFont(new Font("Calibri", Font.BOLD, 18));
+        label.setBounds(50,150,300,300);
+        label.setForeground(new Color(0,125,125));
+        label.setVisible(false);
+
+        button.setBounds(200,100, 100,40);
+        button.addActionListener(this);
+        button.setText("Click here");
+        button.setHorizontalTextPosition(JButton.CENTER);
+        button.setFont(new Font("Calibri", Font.BOLD, 16));
+        button.setForeground(Color.white);
+        button.setBackground(new Color(0,125,125));
+        button.setBorder(BorderFactory.createEtchedBorder());
+        button.setFocusable(false);
+
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLayout(null);
+        this.setSize(500,500);
+        this.setTitle("Javaland for the brave");
+        ImageIcon logo = new ImageIcon("logo.png");
+        this.setIconImage(logo.getImage());
+        this.setVisible(true);
+        this.add(button);
+        this.add(label);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==button) {
+            label.setVisible(true);
+            button.setEnabled(false);
+        }
+        }
+    }
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        new myFrame();
+    }
+}
+=======================================================================================================================
