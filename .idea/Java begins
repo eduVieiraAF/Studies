@@ -1727,5 +1727,73 @@ public class Main {
         frame.setVisible(true);
     }
 }
+=======================================================================================================================
 
+// Easy way to launch a new window
 
+// SEPARATE JAVA CLASS FILE "LAUNCHPAGE"
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class LaunchPage implements ActionListener {
+        ImageIcon logo = new ImageIcon("logo.png");
+        JFrame frame = new JFrame();
+        JButton button = new JButton("Click here");
+    LaunchPage(){
+        button.setBounds(15,10,150,50);
+        button.addActionListener(this);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(400,300);
+        frame.setLayout(null);
+        frame.setTitle("LaunchPage");
+        frame.setIconImage(logo.getImage());
+        frame.add(button);
+        frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==button){
+            NewWindow newWindow = new NewWindow();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE "NEWWINDOW"
+
+import javax.swing.*;
+import java.awt.*;
+
+public class NewWindow {
+    ImageIcon logo = new ImageIcon("logo.png");
+    JFrame newFrame = new JFrame();
+    JLabel label = new JLabel("Ahoy!");
+
+    NewWindow(){
+
+        label.setBounds(10,10,100,100);
+        label.setFont(new Font("MV Boli", Font.BOLD, 14));
+
+        newFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        newFrame.setSize(200,200);
+        newFrame.setLayout(null);
+        newFrame.setTitle("New window");
+        newFrame.setIconImage(logo.getImage());
+        newFrame.add((label));
+        newFrame.setVisible(true);
+
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        LaunchPage launchPage = new LaunchPage();
+
+    }
+}
+=======================================================================================================================
