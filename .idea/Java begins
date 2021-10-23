@@ -1645,7 +1645,41 @@ public class Main {
         frame.setVisible(true);
     }
 }
+=======================================================================================================================
 
+// Layout manager
+
+// GridLayour places components within a grid of cells in a number of rows and columns. Each component takes all
+//              available spaces within its designated cell, and cells are the same size.
+
+mport javax.swing.*;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(400,400);
+        frame.setLayout(new FlowLayout(FlowLayout.CENTER,5,5));
+        frame.setTitle("GridLayout");
+        frame.setIconImage(logo.getImage());
+        frame.setLayout(new GridLayout(4,3,3,3));
+        frame.add(new JButton("1"));
+        frame.add(new JButton("2"));
+        frame.add(new JButton("3"));
+        frame.add(new JButton("4"));
+        frame.add(new JButton("5"));
+        frame.add(new JButton("6"));
+        frame.add(new JButton("7"));
+        frame.add(new JButton("8"));
+        frame.add(new JButton("9"));
+        frame.add(new JButton("0"));
+        frame.setVisible(true);
+    }
+}
+=======================================================================================================================
 
 
 
