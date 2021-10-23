@@ -1681,5 +1681,51 @@ public class Main {
 }
 =======================================================================================================================
 
+// JLayeredPane is a swing container that provides a 3rd dimension for positioning components, wich allow you, for
+//              example to stack them. Think of them as depth and z-index, for intance.
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        JLabel label1 = new JLabel();
+        label1.setOpaque(true);
+        label1.setBackground(Color.black);
+        label1.setBounds(50,50,200,200);
+        JLabel label2 = new JLabel();
+        label2.setOpaque(true);
+        label2.setBackground(Color.green);
+        label2.setBounds(150,150,200,200);
+        JLabel label3 = new JLabel();
+        label3.setOpaque(true);
+        label3.setBackground(Color.yellow);
+        label3.setBounds(250,250,200,200);
+
+        JLayeredPane layeredPane = new JDesktopPane();
+        layeredPane.setBounds(0,0,600,650);
+
+       /* Can be done but with the block of code below it is easier to rearrange components
+
+        layeredPane.add(label1, JLayeredPane.DEFAULT_LAYER);
+        layeredPane.add(label2, JLayeredPane.DEFAULT_LAYER);
+        layeredPane.add(label3, JLayeredPane.DRAG_LAYER);
+      */
+        layeredPane.add(label1, Integer.valueOf(1));
+        layeredPane.add(label2, Integer.valueOf(2));
+        layeredPane.add(label3, Integer.valueOf(0));
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        JFrame frame = new JFrame();
+        frame.add(layeredPane);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(600,650);
+        frame.setLayout(null);
+        frame.setTitle("JLayeredPane");
+        frame.setIconImage(logo.getImage());
+        frame.setVisible(true);
+    }
+}
 
 
