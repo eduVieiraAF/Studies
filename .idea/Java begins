@@ -1526,3 +1526,81 @@ public class Main {
     }
 }
 =======================================================================================================================
+
+// Layout managers
+
+// Border layout places components in 5 major areas: NORTH, SOUTH, EAST, WEST, and CENTRE.
+//                                                          Extra space goes in the centre area.
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int width_margin = 10;
+        int height_margin = 10;
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(500,500);
+        frame.setLayout(new BorderLayout(5,6));
+        frame.setTitle("LAYOUT");
+        frame.setIconImage(logo.getImage());
+        frame.setVisible(true);
+
+        JPanel panel1 = new JPanel();
+        JPanel panel2 = new JPanel();
+        JPanel panel3 = new JPanel();
+        JPanel panel4 = new JPanel();
+        JPanel panel5 = new JPanel();
+
+        panel1.setBackground(Color.RED);
+        panel2.setBackground(Color.CYAN);
+        panel3.setBackground(Color.YELLOW);
+        panel4.setBackground(Color.MAGENTA);
+        panel5.setBackground(Color.BLUE);
+
+        panel1.setPreferredSize(new Dimension(100,100));
+        panel2.setPreferredSize(new Dimension(100,100));
+        panel3.setPreferredSize(new Dimension(100,100));
+        panel4.setPreferredSize(new Dimension(100,100));
+        panel5.setPreferredSize(new Dimension(100,100));
+
+        // SUB PANELS
+
+        JPanel panel6 = new JPanel();
+        JPanel panel7 = new JPanel();
+        JPanel panel8 = new JPanel();
+        JPanel panel9 = new JPanel();
+        JPanel panel10 = new JPanel();
+
+        panel6.setBackground(new Color(125,125,15));
+        panel7.setBackground(new Color(180,70,35));
+        panel8.setBackground(new Color(15,125,50));
+        panel9.setBackground(new Color(130,20,50));
+        panel10.setBackground(new Color(20,90,120));
+
+        panel5.setLayout(new BorderLayout());
+        panel5.add(panel6, BorderLayout.NORTH);
+        panel5.add(panel7, BorderLayout.WEST);
+        panel5.add(panel8, BorderLayout.EAST);
+        panel5.add(panel9, BorderLayout.SOUTH);
+        panel5.add(panel10, BorderLayout.CENTER);
+
+        panel6.setPreferredSize(new Dimension(50,50));
+        panel7.setPreferredSize(new Dimension(50,50));
+        panel8.setPreferredSize(new Dimension(50,50));
+        panel9.setPreferredSize(new Dimension(50,50));
+        panel10.setPreferredSize(new Dimension(50,50));
+
+        // SUB PANELS
+
+        frame.add(panel1, BorderLayout.NORTH);
+        frame.add(panel2, BorderLayout.WEST);
+        frame.add(panel3, BorderLayout.EAST);
+        frame.add(panel4, BorderLayout.SOUTH);
+        frame.add(panel5, BorderLayout.CENTER);
+    }
+}
