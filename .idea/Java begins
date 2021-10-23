@@ -1604,3 +1604,48 @@ public class Main {
         frame.add(panel5, BorderLayout.CENTER);
     }
 }
+=======================================================================================================================
+
+// Layout managers:
+
+// FlowLayout: places components in a row, and can be sized.
+//      If the horizontal space in the container is too small, the Flowlayout class uses the next available row when
+//      window is resized.
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(400,600);
+        frame.setLayout(new FlowLayout(FlowLayout.CENTER,5,5));
+        frame.setTitle("LAYOUT");
+        frame.setIconImage(logo.getImage());
+
+        JPanel panel = new JPanel();
+        panel.setPreferredSize(new Dimension(150,130));
+        panel.setBackground(Color.darkGray);
+        panel.setLayout(new FlowLayout());
+        panel.add(new JButton("1"));
+        panel.add(new JButton("2"));
+        panel.add(new JButton("3"));
+        panel.add(new JButton("4"));
+        panel.add(new JButton("5"));
+        panel.add(new JButton("6"));
+        panel.add(new JButton("7"));
+        panel.add(new JButton("8"));
+        panel.add(new JButton("9"));
+        panel.add(new JButton("0"));
+
+        frame.add(panel);
+        frame.setVisible(true);
+    }
+}
+
+
+
+
