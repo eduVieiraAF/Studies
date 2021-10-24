@@ -2011,6 +2011,8 @@ public class Main {
 
 // JRadioButton offers one or more buttons in a grouping in which only one button can be select per grouping.
 
+// SEPARATE JAVA CLASS FILE 'MYFRAME'
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -2071,6 +2073,61 @@ public class myFrame extends JFrame implements ActionListener {
         else if (e.getSource() == hotdog) {
             JOptionPane.showMessageDialog(null,"You're getting a hotdog",
                     "Selected food", JOptionPane.PLAIN_MESSAGE,hotdogI);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        myFrame frame = new myFrame();
+        }
+    }
+=======================================================================================================================
+
+/* ComboBox contains a drop-down list of buttons of editable fields
+
+SEPARATE JAVA CLASS FILE 'MYFRAME' */
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    ImageIcon pizzaI = new ImageIcon("pizza.png");
+    ImageIcon burgerI = new ImageIcon("burger.png");
+    ImageIcon hotdogI = new ImageIcon("hotdog.png");
+
+    JComboBox comboBox;
+
+    myFrame(){
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+        this.setLocation(510,200);
+        this.setResizable(false);
+
+        String[] food = {"--", "pizza", "Burger", "Hotdog"};
+        comboBox = new JComboBox(food);
+        comboBox.addActionListener(this);
+        //comboBox.setEditable(true);
+
+        this.add(comboBox);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == comboBox){
+            JOptionPane.showMessageDialog(null, comboBox.getSelectedItem(),
+                    "Selected food", JOptionPane.PLAIN_MESSAGE);
+            comboBox.removeItem(comboBox.getSelectedItem());
+            //comboBox.setEnabled(false);
         }
     }
 }
