@@ -1835,20 +1835,15 @@ public class Main {
         }
     }
 }
+========================================================================================================================
 
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        ImageIcon logo = new ImageIcon("logo.png");
-        ImageIcon javaI = new ImageIcon("phoenixX.png");
-
+        ImageIcon logo = new ImageIcon("fenix16x.png");
         JFrame newFrame = new JFrame();
-        JLabel label = new JLabel();
-
-        label.setIcon(javaI);
-        label.setText("what");
 
         newFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         newFrame.setSize(700,600);
@@ -1856,10 +1851,7 @@ public class Main {
         newFrame.setTitle("PHOENIX CODE");
         newFrame.setIconImage(logo.getImage());
         newFrame.setLocation(300,100);
-        newFrame.add(label);
         newFrame.setVisible(true);
-        label.setVisible(true);
-
 
         ImageIcon spidey = new ImageIcon("spidey.png");
         ImageIcon spiderman = new ImageIcon("spiderman.png");
@@ -1887,4 +1879,67 @@ public class Main {
         }
     }
 }
+=======================================================================================================================
+
+// Playing around with a JTextField
+
+// SEPARATE JAVA CLASS FILE "MYPFRAME"
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+
+    JButton button;
+    JTextField textField;
+    ImageIcon logo;
+    myFrame(){
+         logo = new ImageIcon("fenix16x.png");
+
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+        this.setLocation(300,100);
+        this.setResizable(false);
+
+        button = new JButton("Submit");
+        button.addActionListener(this);
+
+        textField = new JTextField();
+        textField.setPreferredSize(new Dimension(250,30));
+        textField.setFont(new Font("MV Boli",Font.BOLD, 18));
+        textField.setForeground(new Color(0,118,158));
+        textField.setBackground(Color.black);
+        textField.setCaretColor(new Color(0,118,158));
+        textField.setText("usermane");
+
+        this.add(textField);
+        this.add(button);
+        this.pack();
+        this.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button){
+            textField.setEditable(false);
+            button.setEnabled(false);
+            textField.setBackground(Color.DARK_GRAY);
+            textField.setText("");
+            logo = new ImageIcon("fenix32x.png");
+            JOptionPane.showMessageDialog(null,"Welcome, " + textField.getText() + "!",
+                    "Phoenix code", JOptionPane.PLAIN_MESSAGE,logo);
+        }
+
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+     public static void main(String[] args) {
+         myFrame frame = new myFrame();
+         }
+     }
 =======================================================================================================================
