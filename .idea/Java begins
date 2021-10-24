@@ -2206,3 +2206,154 @@ public class Main {
         }
     }
 =======================================================================================================================
+
+/* PROGRESS BAR
+
+SEPARATE JAVA CLASS FILE "PROGRESSBAR"
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ProgressBar {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    JFrame frame;
+    JProgressBar bar = new JProgressBar();
+
+    ProgressBar(){
+
+        bar.setValue(0);
+        bar.setBounds(10,10,350,30);
+        bar.setStringPainted(true);
+        bar.setFont(new Font("Tahoma", Font.BOLD, 20));
+        bar.setBackground(Color.black);
+        bar.setForeground(new Color(0,125,125));
+
+        frame = new JFrame("Slider Sample");
+        frame.setIconImage(logo.getImage());
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setSize(500,500);
+        frame.setLayout(null);
+        frame.setResizable(false);
+        frame.add(bar);
+        frame.setVisible(true);
+
+        fill();
+    }
+
+    public void fill() {
+
+        int counter = 0;
+
+        while(counter<=100){
+            bar.setValue(counter);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            counter += 1;
+        }
+        bar.setString("PROGRESS COMPLETE");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        ProgressBar progressBar = new ProgressBar();
+        }
+    }
+=======================================================================================================================
+
+// MENUS
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+public class myFrame extends JFrame implements ActionListener {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    ImageIcon saveIcon = new ImageIcon("save.png");
+    ImageIcon loadIcon = new ImageIcon("load.png");
+    ImageIcon exitIcon = new ImageIcon("exit.png");
+
+    JMenuBar menuBar;
+    JMenu fileMenu;
+    JMenu editMenu;
+    JMenu helpMenu;
+
+    JMenuItem loadItem;
+    JMenuItem saveItem;
+    JMenuItem exitItem;
+
+    myFrame(){
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setBounds(200,120,450,450);
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+
+        menuBar = new JMenuBar();
+        menuBar.setBackground(new Color(157,190,225));
+        fileMenu = new JMenu("File");
+        editMenu = new JMenu("Edit");
+        helpMenu = new JMenu("Help");
+        fileMenu.setMnemonic(KeyEvent.VK_F);
+        editMenu.setMnemonic(KeyEvent.VK_E);
+        helpMenu.setMnemonic(KeyEvent.VK_H);
+
+        loadItem = new JMenuItem("Load");
+        saveItem = new JMenuItem("Save");
+        exitItem = new JMenuItem("Exit");
+
+        loadItem.addActionListener(this);
+        saveItem.addActionListener(this);
+        exitItem.addActionListener(this);
+
+        loadItem.setIcon(loadIcon);
+        saveItem.setIcon(saveIcon);
+        exitItem.setIcon(exitIcon);
+
+        loadItem.setMnemonic(KeyEvent.VK_L);
+        saveItem.setMnemonic(KeyEvent.VK_S);
+        exitItem.setMnemonic(KeyEvent.VK_E);
+
+        fileMenu.add(loadItem);
+        fileMenu.add(saveItem);
+        fileMenu.add(exitItem);
+
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(helpMenu);
+
+        this.setJMenuBar(menuBar);
+        this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == loadItem){
+            JOptionPane.showMessageDialog(null, "File loaded",
+                    "Phoenix code", JOptionPane.PLAIN_MESSAGE, loadIcon);
+        }
+        if (e.getSource() == saveItem){
+            JOptionPane.showMessageDialog(null, "File saved",
+                    "Phoenix code", JOptionPane.PLAIN_MESSAGE, saveIcon);
+        }
+        if (e.getSource() == exitItem){
+           System.exit(0);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        myFrame myFrame = new myFrame();
+        }
+    }
