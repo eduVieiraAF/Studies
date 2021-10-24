@@ -2006,3 +2006,79 @@ public class Main {
         myFrame frame = new myFrame();
         }
     }
+
+=======================================================================================================================
+
+// JRadioButton offers one or more buttons in a grouping in which only one button can be select per grouping.
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    ImageIcon pizzaI = new ImageIcon("pizza.png");
+    ImageIcon burgerI = new ImageIcon("burger.png");
+    ImageIcon hotdogI = new ImageIcon("hotdog.png");
+    JRadioButton pizza;
+    JRadioButton burger;
+    JRadioButton hotdog;
+
+    myFrame(){
+
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+        this.setLocation(510,200);
+        this.setResizable(false);
+
+        pizza = new JRadioButton(" Pizza");
+        burger = new JRadioButton(" Burger");
+        hotdog = new JRadioButton(" Hotdog");
+        pizza.setIcon(pizzaI);
+        burger.setIcon(burgerI);
+        hotdog.setIcon(hotdogI);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(pizza);
+        group.add(burger);
+        group.add(hotdog);
+
+        pizza.addActionListener(this);
+        burger.addActionListener(this);
+        hotdog.addActionListener(this);
+
+        this.add(pizza);
+        this.add(burger);
+        this.add(hotdog);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == pizza) {
+            JOptionPane.showMessageDialog(null, "You're getting a pizza",
+                    "Selected food", JOptionPane.PLAIN_MESSAGE, pizzaI);
+        }
+        else if (e.getSource() == burger) {
+            JOptionPane.showMessageDialog(null, "You're getting a burger",
+                    "Selected food", JOptionPane.PLAIN_MESSAGE, burgerI);
+        }
+        else if (e.getSource() == hotdog) {
+            JOptionPane.showMessageDialog(null,"You're getting a hotdog",
+                    "Selected food", JOptionPane.PLAIN_MESSAGE,hotdogI);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        myFrame frame = new myFrame();
+        }
+    }
+=======================================================================================================================
