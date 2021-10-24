@@ -1943,3 +1943,65 @@ public class Main {
          }
      }
 =======================================================================================================================
+
+// JCheckBox is component that be seleted on unselected
+
+// SEPARATE JAVA CLASS FILE 'MYFRAME'
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+
+    JCheckBox checkBox;
+    JButton button;
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    ImageIcon dialog = new ImageIcon("fenix32X.png");
+    ImageIcon xIcon = new ImageIcon("no.png");
+    ImageIcon tickIcon = new ImageIcon("tick.png");
+
+    myFrame(){
+
+         button = new JButton();
+         button.setText("SUBMIT");
+         button.addActionListener(this);
+
+         checkBox = new JCheckBox();
+         checkBox.setFont(new Font("Calibri", Font.PLAIN,18));
+         checkBox.setText("I'm not a robot");
+         checkBox.setIcon(xIcon);
+         checkBox.setSelectedIcon(tickIcon);
+
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+        this.setLocation(250,250);
+        this.setResizable(false);
+
+        this.add(checkBox);
+        this.add(button);
+        this.pack();
+        this.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button){
+            if (checkBox.isSelected() == true){
+                JOptionPane.showMessageDialog(null,"Yeah, you aint no robot",
+                    "Phoenix code", JOptionPane.PLAIN_MESSAGE,dialog);}
+            else {
+                JOptionPane.showMessageDialog(null,"I'm shutting you down",
+                        "Phoenix code", JOptionPane.PLAIN_MESSAGE,dialog);}
+            }
+        }
+    }
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        myFrame frame = new myFrame();
+        }
+    }
