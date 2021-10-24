@@ -1968,11 +1968,12 @@ public class myFrame extends JFrame implements ActionListener {
          button.setText("SUBMIT");
          button.addActionListener(this);
 
-         checkBox = new JCheckBox();
-         checkBox.setFont(new Font("Calibri", Font.PLAIN,18));
-         checkBox.setText("I'm not a robot");
-         checkBox.setIcon(xIcon);
-         checkBox.setSelectedIcon(tickIcon);
+        checkBox = new JCheckBox();
+        checkBox.setFocusable(false);
+        checkBox.setFont(new Font("Calibri", Font.PLAIN,22));
+        checkBox.setText("I'm not a robot");
+        checkBox.setIcon(xIcon);
+        checkBox.setSelectedIcon(tickIcon);
 
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setLayout(new FlowLayout());
