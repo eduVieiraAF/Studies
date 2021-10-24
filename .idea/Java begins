@@ -1797,3 +1797,42 @@ public class Main {
     }
 }
 =======================================================================================================================
+
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        JFrame newFrame = new JFrame();
+        newFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        newFrame.setSize(700,600);
+        newFrame.setLayout(null);
+        newFrame.setTitle("PHOENIX CODE");
+        newFrame.setIconImage(logo.getImage());
+        newFrame.setLocation(300,100);
+        newFrame.setVisible(true);
+
+        JOptionPane.showMessageDialog(null,"Ahoy, humans of all traits","Dialog box",
+                JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,"We may have some useful info for you", "INFO",
+                JOptionPane.INFORMATION_MESSAGE);
+        /*to store what answer user clicks*/ int returnAnswer = JOptionPane.showConfirmDialog(null,
+                "Are you ready?", "DECIDE NOW", JOptionPane.YES_NO_OPTION);
+
+        switch (returnAnswer) {
+            case 0 :
+            String nameA = JOptionPane.showInputDialog("What is your name?");
+            JOptionPane.showMessageDialog(null,nameA+", you think you're ready, but YOU'RE NOT", "WARNING",
+                    JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null,nameA.toUpperCase() +", HUMANS ARE A MISTAKE",
+                        "DUMBASS",JOptionPane.ERROR_MESSAGE);
+                break;
+            default:
+                String nameB = JOptionPane.showInputDialog("What is your name?");
+                JOptionPane.showMessageDialog(null, nameB.toUpperCase()+", YOU'RE WEAK", "PUSSY",
+                        JOptionPane.ERROR_MESSAGE);
+                break;
+        }
+    }
+}
