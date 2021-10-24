@@ -1405,8 +1405,7 @@ public class Main {
         label.setBackground(Color.darkGray);
         label.setOpaque(true); //necessary to show background colour
         label.setBorder(border);
-        label.setVerticalAlignment(JLabel.CENTER);
-        label.setHorizontalAlignment(JLabel.CENTER);
+
         //label.setBounds(10,10,220,350);
 
         JFrame frame = new JFrame();
@@ -1837,21 +1836,30 @@ public class Main {
     }
 }
 
-
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
 
         ImageIcon logo = new ImageIcon("logo.png");
+        ImageIcon javaI = new ImageIcon("phoenixX.png");
+
         JFrame newFrame = new JFrame();
+        JLabel label = new JLabel();
+
+        label.setIcon(javaI);
+        label.setText("what");
+
         newFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         newFrame.setSize(700,600);
         newFrame.setLayout(null);
         newFrame.setTitle("PHOENIX CODE");
         newFrame.setIconImage(logo.getImage());
         newFrame.setLocation(300,100);
+        newFrame.add(label);
         newFrame.setVisible(true);
+        label.setVisible(true);
+
 
         ImageIcon spidey = new ImageIcon("spidey.png");
         ImageIcon spiderman = new ImageIcon("spiderman.png");
@@ -1864,7 +1872,7 @@ public class Main {
         switch (reply){
             case 0:
                 JOptionPane.showMessageDialog(null, "Scram, kid", "OSCORP",
-                    JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.ERROR_MESSAGE);
                 break;
             case 1:
                 JOptionPane.showMessageDialog(null, "We're getting doctor Connor", "OSCORP",
