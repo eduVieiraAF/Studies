@@ -1836,3 +1836,47 @@ public class Main {
         }
     }
 }
+
+
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ImageIcon logo = new ImageIcon("logo.png");
+        JFrame newFrame = new JFrame();
+        newFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        newFrame.setSize(700,600);
+        newFrame.setLayout(null);
+        newFrame.setTitle("PHOENIX CODE");
+        newFrame.setIconImage(logo.getImage());
+        newFrame.setLocation(300,100);
+        newFrame.setVisible(true);
+
+        ImageIcon spidey = new ImageIcon("spidey.png");
+        ImageIcon spiderman = new ImageIcon("spiderman.png");
+        String[] returnOption = {"No, not really", "Perhaps", "Am I dying?"};
+
+        int reply = JOptionPane.showOptionDialog(null, "Have you been bitten by a glowing spider?",
+                "OSCORP", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE, spidey,
+                returnOption, 0);
+
+        switch (reply){
+            case 0:
+                JOptionPane.showMessageDialog(null, "Scram, kid", "OSCORP",
+                    JOptionPane.ERROR_MESSAGE);
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "We're getting doctor Connor", "OSCORP",
+                        JOptionPane.WARNING_MESSAGE);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Congratulations, you're SPIDERMAN",
+                        "OSCORP", JOptionPane.INFORMATION_MESSAGE, spiderman);
+                break;
+            default:
+                break;
+        }
+    }
+}
+=======================================================================================================================
