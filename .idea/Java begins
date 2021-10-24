@@ -2139,3 +2139,70 @@ public class Main {
         }
     }
 =======================================================================================================================
+
+/* JSlider is a component that allows you to enter a value using an ajustable sliding knob on a track.
+
+SEPARATE JAVA CLASS FILE 'SLIDER_SAMPLE' */
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
+
+public class Slider_Sample implements ChangeListener {
+
+    JFrame frame;
+    JPanel panel;
+    JLabel label;
+    JSlider slider;
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+
+    Slider_Sample(){
+
+        frame = new JFrame("Slider Sample");
+        frame.setIconImage(logo.getImage());
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+        frame.setResizable(false);
+
+        panel = new JPanel();
+        label = new JLabel();
+        slider = new JSlider(-20,100,20);
+
+        slider.setPreferredSize(new Dimension(200,400));
+        slider.setOrientation(SwingConstants.VERTICAL);
+        slider.setForeground(new Color(13,63,105));
+        slider.setFont(new Font("Calibri", Font.BOLD, 14));
+        slider.setPaintTicks(true);
+        slider.setMinorTickSpacing(5);
+        slider.setPaintTrack(true);
+        slider.setMajorTickSpacing(10);
+        slider.setPaintLabels(true);
+        slider.addChangeListener(this);
+
+        label.setForeground(new Color(13,63,105));
+        label.setFont(new Font("Calibri", Font.BOLD, 20));
+        label.setText(slider.getValue() + "°C");
+
+        panel.add(slider);
+        panel.add(label);
+        frame.add(panel);
+
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        label.setText(slider.getValue() + "°C");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+
+        Slider_Sample sliderSample = new Slider_Sample();
+        }
+    }
+=======================================================================================================================
