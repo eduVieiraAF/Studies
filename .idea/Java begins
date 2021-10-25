@@ -2376,6 +2376,10 @@ public class FileChooser extends JFrame implements ActionListener {
     JButton buttonSave;
 
     FileChooser() {
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
 
         buttonOpen = new JButton("Select file");
         buttonSave = new JButton("save file");
@@ -2409,6 +2413,7 @@ public class FileChooser extends JFrame implements ActionListener {
             }
         }
     }
+
 ------------------------------------------------------------------------------------------------------------------------
 
 public class Main {
