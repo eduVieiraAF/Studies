@@ -2628,5 +2628,84 @@ public class Main {
     }
 =======================================================================================================================
 
+/* Drag & drop
+
+SEPARATE JAVA CLASS FILE 'MYFRAME' */
+
+import javax.swing.*;
+
+public class myFrame extends JFrame {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    DragPanel dragpanel = new DragPanel();
+
+    myFrame(){
+
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setSize(600,600);
+        this.setLocationRelativeTo(null);
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+
+        this.add(dragpanel);
+        this.setVisible(true);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+// SEPARATE JAVA CLASS FILE 'DRAGPANEL'
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+
+public class DragPanel extends JPanel{
+
+    ImageIcon spaceShip = new ImageIcon("spaceship.png");
+    final int WIDTH = spaceShip.getIconWidth();
+    final int HEIGHT = spaceShip.getIconHeight();
+    Point imageCorner;
+    Point prevPt;
+
+    DragPanel(){
+        imageCorner = new Point(0,0);
+        ClickListener clickListener = new ClickListener();
+        DragListener dragListener = new DragListener();
+        this.addMouseListener(clickListener);
+        this.addMouseMotionListener(dragListener);
+    }
+
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        spaceShip.paintIcon(this, g, (int) imageCorner.getX(), (int) imageCorner.getY());
+    }
+
+    private class ClickListener extends MouseAdapter{
+        public void mousePressed(MouseEvent e){
+            prevPt =  e.getPoint();
+        }
+    }
+
+    private class DragListener extends MouseMotionAdapter{
+        public void mouseDragged(MouseEvent e) {
+            Point currentPt = e.getPoint();
+            imageCorner.translate(
+                    (int)(currentPt.getX() - prevPt.getX()),
+                    (int)(currentPt.getY() - prevPt.getY()));
+            prevPt = currentPt;
+            repaint();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+       myFrame myFrame = new myFrame();
+        }
+    }
+=======================================================================================================================
 
 
