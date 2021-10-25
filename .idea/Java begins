@@ -2357,3 +2357,67 @@ public class Main {
         myFrame myFrame = new myFrame();
         }
     }
+=======================================================================================================================
+
+/* JFileChooser is a mechanism that lets you choose a file to open or save.
+
+SEPARATE JAVA CLASS FILE 'FILECHOOSER' */
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+public class FileChooser extends JFrame implements ActionListener {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    JButton buttonOpen;
+    JButton buttonSave;
+
+    FileChooser() {
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+
+        buttonOpen = new JButton("Select file");
+        buttonSave = new JButton("save file");
+        buttonOpen.addActionListener(this);
+        buttonSave.addActionListener(this);
+
+        this.add(buttonOpen);
+        this.add(buttonSave);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == buttonOpen) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File("."));
+            int clickReturnOpen = fileChooser.showOpenDialog(null);
+            if (clickReturnOpen == JFileChooser.APPROVE_OPTION) {
+                File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+                JOptionPane.showMessageDialog(null, file, "Phoenix code", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        if (e.getSource() == buttonSave) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File("."));
+            int clickReturnSave = fileChooser.showSaveDialog(null);
+            if (clickReturnSave == JFileChooser.APPROVE_OPTION) {
+                File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+                JOptionPane.showMessageDialog(null, file, "Phoenix code", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        FileChooser fileChooser = new FileChooser();
+        }
+    }
+=======================================================================================================================
