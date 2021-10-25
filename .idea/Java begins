@@ -2376,10 +2376,6 @@ public class FileChooser extends JFrame implements ActionListener {
     JButton buttonSave;
 
     FileChooser() {
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setLayout(new FlowLayout());
-        this.setTitle("PHOENIX CODE");
-        this.setIconImage(logo.getImage());
 
         buttonOpen = new JButton("Select file");
         buttonSave = new JButton("save file");
@@ -2418,6 +2414,61 @@ public class FileChooser extends JFrame implements ActionListener {
 public class Main {
     public static void main(String[] args) {
         FileChooser fileChooser = new FileChooser();
+        }
+    }
+=======================================================================================================================
+
+/* JColorChooser is a mechanism that allows users to pick a colour of their choice.
+
+**BASIC INTRO
+
+SEPARATE JAVA CLASS FILE 'MYFRAME'
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    JButton button;
+    JLabel label;
+
+    myFrame(){
+
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+
+        button = new JButton("Pick a colour");
+        button.addActionListener(this);
+        label = new JLabel();
+        label.setText("See how it changes");
+        label.setFont(new Font("Comic Sans", Font.BOLD,45));
+        label.setOpaque(true);
+
+        this.add(label);
+        this.add(button);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == button){
+            JColorChooser colorChooser = new JColorChooser();
+            Color color = JColorChooser.showDialog(null, "Select a color", Color.black);
+            label.setForeground(color);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        new myFrame();
         }
     }
 =======================================================================================================================
