@@ -2553,5 +2553,80 @@ public class Main {
     }
 =======================================================================================================================
 
+/* MouseListener
+
+SEPARATE JAVA CLASS FILE 'MYFRAME' */
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class myFrame extends JFrame implements MouseListener {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    ImageIcon smile = new ImageIcon("smile.png");
+    ImageIcon nervous = new ImageIcon("nervous.png");
+    ImageIcon dizzy = new ImageIcon("dizzy.png");
+    ImageIcon pain = new ImageIcon("pain.png");
+    JLabel label;
+
+    myFrame(){
+
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setSize(500,500);
+        this.setLayout(new FlowLayout());
+
+        this.setLocationRelativeTo(null);
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+
+        label = new JLabel();
+        label.setIcon(smile);
+        label.addMouseListener(this);
+
+        this.add(label);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // called when the mouse button is clicked (pressed and released) on a component
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // called when the mouse button is pressed on a component
+        label.setIcon(pain);
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // called and the mouse button is released on a component
+        label.setIcon(dizzy);
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // called when pointer enter the area of a component
+        label.setIcon(nervous);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // called when the pointer exists the area of component
+        label.setIcon(smile);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        new myFrame();
+        }
+    }
+=======================================================================================================================
+
 
 
