@@ -1323,7 +1323,7 @@ public class Main {
                 case ("Q"): clip.close();
                     break;
                 default:
-                    System.out.println("INVALID CHOICE");;
+                    System.out.println("INVALID CHOICE");
             }
         }
     }
@@ -2973,3 +2973,46 @@ public class Main {
         }
     }
 =======================================================================================================================
+
+/* Generics enable types (classes and interfaces) to be parameters  when defining:
+        - classes;
+        - interfaces;
+        - methods.
+One of the benefits is eliminate the need to create multiple versions of classes or methods for various data types, you
+just use 1 version for all reference data types.
+
+
+// EXAMPLE #1
+
+public class Main {
+    public static void main(String[] args) {
+
+ Integer[] intArray = {5,6,3,4,7,8};
+        Double[] doubleArray = {6.9,4.7,7.9,2.1,8.1};
+        Character[] charArray = {'P', 'H', 'O', 'E', 'N', 'I', 'X'};
+        String[] stringArray = {"C","O","D","E"};
+
+       /* displayArray(intArray);
+        displayArray(doubleArray);
+        displayArray(charArray);   THESE WILL RETURN THE ENTIRE ARRAY WITH THE 1ST METHOD BUT DELETE NEXT BLOCK OF CODE
+        displayArray(stringArray);*/
+
+        System.out.println(getFisrt(intArray));
+        System.out.println(getFisrt(doubleArray));
+        System.out.println(getFisrt(charArray));
+        System.out.println(getFisrt(stringArray));
+        }
+
+    public static <T> void displayArray(T[] array){
+
+        for (T x: array){
+            System.out.print(x + " ");
+        }
+        System.out.println();
+    }
+
+    public static <T> T getFisrt(T[] array){
+        return array[0];
+    }
+ }
+------------------------------------------------------------------------------------------------------------------------
