@@ -2793,3 +2793,95 @@ public class Main {
         }
     }
 =======================================================================================================================
+
+/* 2D GRAPHICS
+
+SEPARATE JAVA CLASS FILE 'MYPANEL' */
+
+import javax.swing.*;
+ import java.awt.*;
+
+ public class MyPanel extends JPanel {
+
+     Image spidey;
+
+     MyPanel(){
+
+         this.setPreferredSize(new Dimension(500,500));
+
+     }
+         public void paint(Graphics g){
+             Graphics2D g2D = (Graphics2D) g;
+
+             g2D.setPaint(new Color(0, 161,125));
+             g2D.setStroke(new BasicStroke(5));
+             g2D.drawLine(0,0,500,500);
+
+             g2D.setPaint(new Color(254,161,125));
+             g2D.fillRect(5,10,220,340);
+             g2D.setPaint(new Color(204,15,150));
+             g2D.drawRect(2,2,200,340);
+
+             g2D.setStroke(new BasicStroke(2));
+             g2D.setPaint(new Color(169,209,113));
+             g2D.drawOval(225,20,50,100);
+             g2D.fillOval(285,22,50,100);
+
+             g2D.setStroke(new BasicStroke(4));
+
+             g2D.drawArc(20,345, 100,100,0,180);
+             g2D.drawArc(110,345, 100,100,180,180);
+
+             g2D.setStroke(new BasicStroke(2));
+             g2D.setPaint(new Color(208,0,24));
+             g2D.fillArc(400,20,100,100,0,180);
+             g2D.setPaint(new Color(252,252,252));
+             g2D.fillArc(400,20,100,100,180,180);
+
+             g2D.setPaint(new Color(190,94,107));
+             int[] xPoints =  {150,250,350};
+             int[] yPoints = {300,150,300};
+             g2D.fillPolygon(xPoints,yPoints,3);
+             g2D.setPaint(new Color(253,211,29));
+             g2D.setStroke(new BasicStroke(7));
+             g2D.drawPolygon(xPoints,yPoints,3);
+
+             g2D.setPaint(new Color(50,48,62));
+             g2D.setFont(new Font("Ink Free", Font.BOLD,20));
+             g2D.drawString("PHOENIX CODE", 170,295);
+
+             spidey = new ImageIcon("spiderman.png").getImage();
+             g2D.drawImage(spidey, 280,340, null);
+     }
+ }
+------------------------------------------------------------------------------------------------------------------------
+
+// SEPARATE JAVA CLASS FILE 'MYFRAME'
+
+import javax.swing.*;
+import java.awt.*;
+
+public class MyFrame extends JFrame {
+
+    ImageIcon logo = new ImageIcon("fenix16x.png");
+    MyPanel panel;
+
+    MyFrame(){
+
+        panel = new MyPanel();
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setTitle("PHOENIX CODE");
+        this.setIconImage(logo.getImage());
+        this.getContentPane().setBackground(new Color(135,206,235));
+        this.add(panel);
+        this.pack();
+        this.setVisible(true);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+            MyFrame myFrame = new MyFrame();
+        }
+    }
