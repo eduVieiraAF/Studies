@@ -3109,4 +3109,20 @@ public class Main {
 }
 ------------------------------------------------------------------------------------------------------------------------
 
+public class MyGenericClass <gen1 extends Number, gen2>{ // bounded types
+    gen1 x;
+    gen2 y;
+    MyGenericClass (gen1 x, gen2 y){
+        this.x = x;
+        this.y = y;
+    }
+    public gen1 getValue1(){
+        return x;
+    }
+    public gen2 getValue2(){
+        return y;
+    }
+}
+=======================================================================================================================
+
 
