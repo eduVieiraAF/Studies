@@ -3016,3 +3016,26 @@ public class Main {
     }
  }
 ------------------------------------------------------------------------------------------------------------------------
+
+/* here's a generic example of generics when creating a video game. These simple lines of code will allow for calling up
+the genric method for multiple data types.
+
+public class Main {
+    public static void main(String[] args) {
+
+        Player player = new Player();
+        Enemy enemy = new Enemy();
+        Item item = new Item();
+        Weapon weapon = new Weapon();
+
+        draw(player);
+        draw(enemy);
+        draw(item);
+        draw(weapon);
+    }
+
+    public static <T> void draw(T x){
+        x.draw();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
