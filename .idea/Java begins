@@ -3125,4 +3125,96 @@ public class MyGenericClass <gen1 extends Number, gen2>{ // bounded types
 }
 =======================================================================================================================
 
+/* Basics of SERIALIZATION: It is the process of converting an object into a byte stream. The obejct persists (saves its
+state) after the program is closed. This byte stream can be  save as a file or sent to a network, and can be sent to a
+different machine. Byte stream can be saved as a file (.ser) which is platform independent.
+
+in short, it is as if you're saving a file with the objects information.
+
+SEPARATE JAVA CLASSS FILE 'USER'
+
+
+import javax.swing.*;
+import java.io.Serializable;
+
+public class User implements Serializable {
+    String name;
+    String password;
+
+    public void greet(){
+        JOptionPane.showMessageDialog(null, "Greetings " + name, "Phoenix CODE",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+import javax.swing.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        User user = new User();
+        user.name = JOptionPane.showInputDialog(null,"Enter name:", "Phoenix CODE",
+                JOptionPane.YES_NO_CANCEL_OPTION);
+        user.greet();
+      user.password =  JOptionPane.showInputDialog(null,"Enter password:", "Phoenix CODE",
+                JOptionPane.WARNING_MESSAGE);
+
+        FileOutputStream fileOut =  new FileOutputStream("UserInfo.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(user);
+        out.close();
+        fileOut.close();
+
+        JOptionPane.showMessageDialog(null, "Info saved", "Phoenix CODE",
+                    JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+/*DESERIALIZATION: The exact opposite process, it converts a byte stream into an object, much the same as loading a
+savedfile.
+
+SEPARETE FILE */
+
+import javax.swing.*;
+import java.io.Serializable;
+
+public class User implements Serializable {
+    String name;
+    String password;
+
+    public void greet(){
+        JOptionPane.showMessageDialog(null, "Greetings " + name, "Phoenix CODE",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+
+//It looks exactly as the SERIALIZABLE one for demonstration's porpuse//
+------------------------------------------------------------------------------------------------------------------------
+
+import javax.swing.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class Main {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        User user = null;
+
+        FileInputStream fileIN = new FileInputStream("UserInfo.ser");
+        ObjectInputStream in = new ObjectInputStream(fileIN);
+        user = (User) in.readObject();
+        in.close();
+        fileIN.close();
+
+        user.greet();
+        JOptionPane.showMessageDialog(null, user.name + " " + user.password,
+                "Phoenix Code", JOptionPane.WARNING_MESSAGE);
+    }
+}
+=======================================================================================================================
 
