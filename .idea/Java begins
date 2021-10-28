@@ -3325,3 +3325,67 @@ public class Main {
     }
 }
 ------------------------------------------------------------------------------------------------------------------------
+
+/* MULTITHREADING is the process of executing multiple threads simultaneously to help maximum use of CPU.
+Threads are independent so they do not affect the execution of other threads. An exception in one thread will not
+interrupt other threads.
+This is useful for serving multiple clients, multiplayer games or other mutually independent tasks.
+
+public class MyThread extends Thread{
+
+    @Override
+    public void run(){
+
+        for (int i = 10; i > 0; i--){
+            System.out.println("Thread #1 - " + i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Thread #1 is done.");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class MyRunnable implements Runnable{
+    @Override
+    public void run() {
+
+        for (int i = 0; i < 10; i++){
+            System.out.println("Thread #2 - " +i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Thread #2 is done.");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+
+        // Create a subclass of Thread
+        MyThread thread1 = new MyThread();
+
+        //or
+
+        //implement Runnable interface and pass assistance as an argument to Thread()
+        MyRunnable runnable1 = new MyRunnable();
+        Thread thread2 = new Thread(runnable1);
+
+        /*thread1.setDaemon(true);
+        thread2.setDaemon(true);*/
+
+        thread1.start();
+        thread1.join(4000); /*calling thread will wait till the specified thread dies or for x amount of
+                                    millisecs*/
+        thread2.start();
+        //System.out.println(5/0); /* this is cause an exception but threads will still run independently.*/
+    }
+}
+=======================================================================================================================
