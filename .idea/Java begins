@@ -3449,7 +3449,7 @@ public class Main {
             System.out.println(name + ", it took you " + tries + " guesses.");
         }else {
             System.out.println("GAME OVER");
-            System.out.println("The numbr is " + x);
+            System.out.println("The number is " + x);
         }
     }
 }
